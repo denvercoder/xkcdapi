@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xkcdapi", "xkcdapi\xkcdapi.csproj", "{F66EA8A4-9CD9-423B-A083-D47C60772B52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F66EA8A4-9CD9-423B-A083-D47C60772B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F66EA8A4-9CD9-423B-A083-D47C60772B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F66EA8A4-9CD9-423B-A083-D47C60772B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F66EA8A4-9CD9-423B-A083-D47C60772B52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00E0072D-5285-48C5-982B-16FE12F93F5A}
+	EndGlobalSection
+EndGlobal
