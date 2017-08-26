@@ -23,10 +23,10 @@ namespace xkcdapi.Controllers
         [HttpGet]
         public IActionResult GetAllComics()
         {
-            var allComics = _comicRepository.GetAll().ToList();
+            var allComics = _comicRepository.GetAll().OrderBy(o => o.Num).ToList();
 
             var allComicsDto = allComics.Select(Mapper.Map<ComicDto>);
-
+            
             return Ok(allComicsDto);
         }
 
