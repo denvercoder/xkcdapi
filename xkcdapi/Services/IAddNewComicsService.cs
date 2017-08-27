@@ -7,6 +7,6 @@ namespace xkcdapi.Services
 {
     public interface IAddNewComicsService
     {
-        Task AddComic();
+       Task AddComic();
     }
 }
