@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -37,7 +34,6 @@ namespace xkcdapi.Services
             var latestComicNumber = GetLatestComic();
 
             //Get all of the comics
-            //TODO: Change back to latestComicNumber
             for (var i = 1; i < latestComicNumber; i++)
             {
                 if (i != 404)

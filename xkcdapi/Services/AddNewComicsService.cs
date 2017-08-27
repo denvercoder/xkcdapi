@@ -1,20 +1,16 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using Newtonsoft.Json;
 using xkcdapi.Entities;
-using Timer = System.Threading.Timer;
 
 namespace xkcdapi.Services
 {
     public class AddNewComicsService : IScheduledTask
     {
         private readonly XkcdDbContext _context;
-        public string Schedule => "* * */1 * *";
+        public string Schedule => "* */6 * * *";
 
         public AddNewComicsService(XkcdDbContext context)
         {

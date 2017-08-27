@@ -1,6 +1,4 @@
 ﻿using System.Diagnostics;
-using System.IO;
-using System.Threading;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -79,8 +77,6 @@ namespace xkcdapi
 //            //Uncomment this line to reseed the database
 //            //for example if it gets corrupted or lost.
 //            app.AddSeedData();
-
-            //app.AddNewComic();
 
             app.UseMvc();
 
