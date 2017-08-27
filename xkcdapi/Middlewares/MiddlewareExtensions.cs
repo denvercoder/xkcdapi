@@ -20,5 +20,11 @@ namespace xkcdapi.Middlewares
             var seedDataService = app.ApplicationServices.GetRequiredService<ISeedDataService>();
             await seedDataService.EnsureSeedData();
         }
+
+        public static async void AddNewComic(this IApplicationBuilder app)
+        {
+            var addNewComicService = app.ApplicationServices.GetRequiredService<IAddNewComicsService>();
+            await addNewComicService.AddComic();
+        }
     }
 }

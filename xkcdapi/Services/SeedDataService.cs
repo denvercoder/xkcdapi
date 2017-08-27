@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -17,6 +18,15 @@ namespace xkcdapi.Services
             _context = context;
         }
 
+        public int GetLatestComic()
+        {
+            WebClient getLatest = new WebClient();
+            var latestComic = getLatest.DownloadString("http://xkcd.com/info.0.json");
+            Comic deserializeLatest = JsonConvert.DeserializeObject<Comic>(latestComic);
+            getLatest.Dispose();
+            return deserializeLatest.Num + 1;
+        }
+
         public async Task EnsureSeedData()
         {
             _context.Database.EnsureCreated();
@@ -24,13 +34,10 @@ namespace xkcdapi.Services
             _context.Comics.RemoveRange(_context.Comics);
             _context.SaveChanges();
 
-            WebClient getLatest = new WebClient();
-            var latestComicNumber = 0;
-            var latestComic = getLatest.DownloadString("http://xkcd.com/info.0.json");
-            Comic deserializeLatest = JsonConvert.DeserializeObject<Comic>(latestComic);
-            latestComicNumber = deserializeLatest.Num + 1;
+            var latestComicNumber = GetLatestComic();
 
             //Get all of the comics
+            //TODO: Change back to latestComicNumber
             for (var i = 1; i < latestComicNumber; i++)
             {
                 if (i != 404)
@@ -49,9 +56,6 @@ namespace xkcdapi.Services
                     await _context.SaveChangesAsync();
                 }
             }
-
-            getLatest.Dispose();
-
 
         }
     }

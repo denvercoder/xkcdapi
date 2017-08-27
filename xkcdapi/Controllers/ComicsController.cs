@@ -42,8 +42,5 @@ namespace xkcdapi.Controllers
             }
             return Ok(Mapper.Map<ComicDto>(comicFromRepo));
         }
-        //Put all comics
-
-
     }
 }

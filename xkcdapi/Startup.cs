@@ -38,6 +38,7 @@ namespace xkcdapi
 
             services.AddScoped<IComicRepository, ComicRepository>();
             services.AddScoped<ISeedDataService, SeedDataService>();
+            services.AddScoped<IAddNewComicsService, AddNewComicsService>();
 
             services.AddMvc();
         }
@@ -69,6 +70,8 @@ namespace xkcdapi
 //            //Uncomment this line to reseed the database
 //            //for example if it gets corrupted or lost.
 //            app.AddSeedData();
+
+            app.AddNewComic();
 
             app.UseMvc();
 
