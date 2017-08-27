@@ -1,10 +1,61 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Unofficial xkcd API v2.0</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-    Hello World!
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Unofficial xkcd API Version 2.0</h1>
+        <p>I needed to be able to json fetch all of the xkcd projects for a mobile app. As the xkcd API exists on <a href="https://xkcd.com/">xkcd</a> 
+            you could only get either the latest comic or you could get a comic by the id number. For my mobile app
+            I soon realized that I would have to make 1,880 network requests to get all of the comics so I wanted
+            to build something where I could just get them all. This API gets the latest comics every hour.</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Get All Comics</h2>
+            <p>You can fetch all of the current comics by using <a href="http://xkcdapi20170825022619.azurewebsites.net/api/comics"> this.</a> </p>
+        </div>
+        <div class="col-md-6">
+            <h2>Fetch A Specific Comic</h2>
+            <p>You can fetch a specific comic by using <a href="http://xkcdapi20170825022619.azurewebsites.net/api/comics/1">this</a> and just replace the 1 with whatever comic you like.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>NOTE: All of the content of the API is owned by <a href="https://xkcd.com/about/">Randall Munroe.</a> None of the content is mine, I'm just a huge fan and wanted an easier way to consume the comics.</p>
+        <p>&copy; Denver Coder 2017</p>
+    </footer>
+</div> <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../../../assets/js/vendor/popper.min.js"></script>
+<script src="../../../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

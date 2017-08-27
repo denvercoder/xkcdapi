@@ -2,8 +2,8 @@
 
 namespace xkcdapi.Services
 {
-    public interface ISeedDataService
+    public interface IAddNewComicsService
     {
-        Task EnsureSeedData();
+       Task AddComic();
     }
 }
