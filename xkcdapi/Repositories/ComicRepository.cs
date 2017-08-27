@@ -21,9 +21,9 @@ namespace xkcdapi.Repositories
             return _context.Comics;
         }
 
-        public Comic GetSingle(Guid id)
+        public Comic GetSingle(int id)
         {
-            return _context.Comics.FirstOrDefault(x => x.Id == id);
+            return _context.Comics.FirstOrDefault(x => x.Num == id);
         }
 
         public void Add(Comic item)
@@ -31,7 +31,7 @@ namespace xkcdapi.Repositories
             _context.Comics.Add(item);
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             Comic Comic = GetSingle(id);
             _context.Comics.Remove(Comic);

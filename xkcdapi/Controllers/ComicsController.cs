@@ -32,7 +32,7 @@ namespace xkcdapi.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetSingleComic(Guid id)
+        public IActionResult GetSingleComic(int id)
         {
             Comic comicFromRepo = _comicRepository.GetSingle(id);
 
