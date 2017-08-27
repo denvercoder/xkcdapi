@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using xkcdapi.Entities;
-using xkcdapi.Repositories;
 
 namespace xkcdapi.Services
 {
@@ -26,7 +22,6 @@ namespace xkcdapi.Services
             Comic deserializeNewComic = JsonConvert.DeserializeObject<Comic>(newComic);
 
             var newestComicInDb = _context.Comics.Max(n => n.Num);
-
             
             if (deserializeNewComic.Num > newestComicInDb)
             {
