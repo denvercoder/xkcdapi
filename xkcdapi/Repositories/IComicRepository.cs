@@ -7,9 +7,9 @@ namespace xkcdapi.Repositories
     public interface IComicRepository
     {
         IQueryable<Comic> GetAll();
-        Comic GetSingle(Guid id);
+        Comic GetSingle(int id);
         void Add(Comic item);
-        void Delete(Guid id);
+        void Delete(int id);
         void Update(Comic item);
         bool Save();
     }

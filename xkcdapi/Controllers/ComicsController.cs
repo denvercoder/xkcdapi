@@ -23,16 +23,16 @@ namespace xkcdapi.Controllers
         [HttpGet]
         public IActionResult GetAllComics()
         {
-            var allComics = _comicRepository.GetAll().ToList();
+            var allComics = _comicRepository.GetAll().OrderBy(o => o.Num).ToList();
 
             var allComicsDto = allComics.Select(Mapper.Map<ComicDto>);
-
+            
             return Ok(allComicsDto);
         }
 
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetSingleComic(Guid id)
+        public IActionResult GetSingleComic(int id)
         {
             Comic comicFromRepo = _comicRepository.GetSingle(id);
 
@@ -42,8 +42,5 @@ namespace xkcdapi.Controllers
             }
             return Ok(Mapper.Map<ComicDto>(comicFromRepo));
         }
-        //Put all comics
-
-
     }
 }
