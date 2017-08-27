@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,12 +19,6 @@ namespace xkcdapi.Middlewares
             var seedDataService = app.ApplicationServices.GetRequiredService<ISeedDataService>();
             await seedDataService.EnsureSeedData();
         }
-
-//        public static async void AddNewComic(this IApplicationBuilder app)
-//        {
-//            var addNewComicService = app.ApplicationServices.GetRequiredService<IAddNewComicsService>();
-//            await addNewComicService.AddComic();
-//        }
 
         public static IServiceCollection AddScheduler(this IServiceCollection services)
         {
