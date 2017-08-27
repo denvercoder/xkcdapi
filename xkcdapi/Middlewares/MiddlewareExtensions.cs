@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using xkcdapi.Services;
 
 namespace xkcdapi.Middlewares
@@ -21,10 +22,25 @@ namespace xkcdapi.Middlewares
             await seedDataService.EnsureSeedData();
         }
 
-        public static async void AddNewComic(this IApplicationBuilder app)
+//        public static async void AddNewComic(this IApplicationBuilder app)
+//        {
+//            var addNewComicService = app.ApplicationServices.GetRequiredService<IAddNewComicsService>();
+//            await addNewComicService.AddComic();
+//        }
+
+        public static IServiceCollection AddScheduler(this IServiceCollection services)
         {
-            var addNewComicService = app.ApplicationServices.GetRequiredService<IAddNewComicsService>();
-            await addNewComicService.AddComic();
+            return services.AddSingleton<IHostedService, SchedulerHostedService>();
+        }
+
+        public static IServiceCollection AddScheduler(this IServiceCollection services, EventHandler<UnobservedTaskExceptionEventArgs> unobservedTaskExceptionHandler)
+        {
+            return services.AddSingleton<IHostedService, SchedulerHostedService>(serviceProvider =>
+            {
+                var instance = new SchedulerHostedService(serviceProvider.GetServices<IScheduledTask>());
+                instance.UnobservedTaskException += unobservedTaskExceptionHandler;
+                return instance;
+            });
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
+using System.Threading;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -38,7 +40,13 @@ namespace xkcdapi
 
             services.AddScoped<IComicRepository, ComicRepository>();
             services.AddScoped<ISeedDataService, SeedDataService>();
-            services.AddScoped<IAddNewComicsService, AddNewComicsService>();
+            //services.AddScoped<IAddNewComicsService, AddNewComicsService>();
+            services.AddSingleton<IScheduledTask, AddNewComicsService>();
+            services.AddScheduler((sender, args) =>
+            {
+                Debug.WriteLine(args.Exception.Message);
+                args.SetObserved();
+            });
 
             services.AddMvc();
         }
@@ -51,6 +59,7 @@ namespace xkcdapi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
 
             if (env.IsEnvironment("MyEnvironment"))
@@ -71,7 +80,7 @@ namespace xkcdapi
 //            //for example if it gets corrupted or lost.
 //            app.AddSeedData();
 
-            app.AddNewComic();
+            //app.AddNewComic();
 
             app.UseMvc();
 
