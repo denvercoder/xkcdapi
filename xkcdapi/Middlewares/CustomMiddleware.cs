@@ -7,7 +7,6 @@ namespace xkcdapi.Middlewares
     {
         private readonly RequestDelegate _next;
 
-
         public CustomMiddleware(RequestDelegate next)
         {
             _next = next;
