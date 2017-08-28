@@ -28,8 +28,8 @@ namespace xkcdapi.Services
         {
             _context.Database.EnsureCreated();
 
-            _context.Comics.RemoveRange(_context.Comics);
-            _context.SaveChanges();
+            //_context.Comics.RemoveRange(_context.Comics);
+            //_context.SaveChanges();
 
             var latestComicNumber = GetLatestComic();
 

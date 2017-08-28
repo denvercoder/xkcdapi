@@ -10,7 +10,7 @@ namespace xkcdapi.Services
     public class AddNewComicsService : IScheduledTask
     {
         private readonly XkcdDbContext _context;
-        public string Schedule => "* */1 * * *";
+        public string Schedule => "0 0 * * *";
 
         public AddNewComicsService(XkcdDbContext context)
         {

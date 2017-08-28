@@ -74,9 +74,9 @@ namespace xkcdapi
                 mapper.CreateMap<Comic, ComicDto>().ReverseMap();
             });
 
-//            //Uncomment this line to reseed the database
-//            //for example if it gets corrupted or lost.
-//            app.AddSeedData();
+            //Uncomment this line to reseed the database
+            //for example if it gets corrupted or lost.
+            //app.AddSeedData();
 
             app.UseMvc();
 
