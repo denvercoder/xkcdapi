@@ -31,5 +31,9 @@ non-commercial purposes.
 Please visit https://xkcd.com/ if you haven't been there before you will enjoy it
 I promise. If you _have_ been there before, why not go back and check it out!
 
+# Project
+my website/api is located here:
+http://xkcdapi20170825022619.azurewebsites.net/
+
 Thanks
 
